@@ -8,6 +8,10 @@ import { RegisterComponent } from './login/register.component';
 import { APP_ROUTES } from './app.routes';
 //modules
 import { PagesModule } from './pages/pages.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UsuarioService } from './services/usuario/usuario.service';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginGuardGuard } from './services/guards/login-guard.guard';
 
 
 @NgModule({
@@ -19,9 +23,15 @@ import { PagesModule } from './pages/pages.module';
   imports: [
     BrowserModule,   
     APP_ROUTES,
-    PagesModule
+    PagesModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    UsuarioService,
+    LoginGuardGuard,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
